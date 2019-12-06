@@ -1,73 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <title>Bootflat-Admin Template</title>
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="shortcut icon" href="favicon_16.ico"/>
-        <link rel="bookmark" href="favicon_16.ico"/>
-        <!-- site css -->
-        <link rel="stylesheet" href="./assets/css/site.min.css">
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-        <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css"> -->
-        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-        <script type="text/javascript" src="./assets/js/site.min.js"></script>
+    <?php
+include './head.html';
+        ?>
     </head>
     <body>
         <!--nav-->
         <nav role="navigation" class="navbar navbar-custom">
-            <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand">管理画面</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="getting-started.html">Getting Started</a></li>
-                <li class="active"><a href="index.html">Documentation</a></li>
-                <!-- <li class="disabled"><a href="#">Link</a></li> -->
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Silverbux <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                    <li class="dropdown-header">Setting</li>
-                    <li><a href="#">Action</a></li>
-                    <li class="divider"></li>
-                    <li class="active"><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li class="disabled"><a href="#">Signout</a></li>
-                    </ul>
-                </li>
-                </ul>
-
-            </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+        <?php
+include './navigation.html';
+        ?>
         </nav>
         <!--header-->
         <div class="container-fluid">
         <!--documents-->
             <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
-                <ul class="list-group panel">
-                    <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>SIDE PANEL</b></li>
-                    <li class="list-group-item"><input type="text" class="form-control search-query" placeholder="Search Something"></li>
-                    <li class="list-group-item"><a href="./case_list.html"><i class="fas fa-list"></i>案件一覧 </a></li>
-                    <li class="list-group-item"><a href="./stocking_list.html"><i class="fas fa-list"></i>仕入れ・出荷 </a></li>
-                    
-                </ul>
+            <?php
+include './nav_list.html';
+?>
             </div>
             <div class="col-xs-12 col-sm-9 content">
                 <div class="panel panel-default">
@@ -77,15 +29,15 @@
                     
                     <div class="panel-body">
                         <div class="content-row">
-                                <div class="alert alert-info alert-dismissable">
-                                        <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
-                                        <h4>マッチングあり！</h4>
-                                        <p class="lead_">○○案件の車輌と同一です。</p>
-                                        </p>
-                                    </div>
-                            <div class="panel panel-success">
+                            <div class="alert alert-warning alert-dismissable">
+                                <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+                                <h4>内容確認！</h4>
+                                <p class="lead_">以下の内容で登録します。ご確認ください。</p>
+                                </p>
+                            </div>
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">案件内容（買い注文、売り注文）</h3>
+                                    <h3 class="panel-title">仕入・出荷内容（買い注文、売り注文）</h3>
                                 </div>
                                 <div class="panel-body">
                                     <form novalidate="" role="form" class="form-horizontal">
@@ -105,46 +57,39 @@
                                         
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">車両情報<label style="margin-left: auto; margin-right: auto;">▼</label></h3>
-                                                
+                                                <h3 class="panel-title">仕入車両情報</h3>
                                             </div>
                                             <div class="panel-body">
                                                 
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車輌型式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">車両名</label>
-                                                    <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">色</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">年式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">走行距離</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">ミッション</label>
                                                     <div class="col-md-10 ">
 
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     
                                                     </div>
                                                 </div>
@@ -153,17 +98,40 @@
 
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">予算</h3>
+                                                <h3 class="panel-title">金額</h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="form-group">
-                                                    <label class="col-md-2 control-label">金額</label>
-                                                    <div class="col-md-10 input-group">
-                                                        <span class="input-group-addon">￥</span>
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <label class="col-md-2 control-label">単価</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
-                                                
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">落札手数料</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">消費税</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">手続き手数料</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">日付</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -177,18 +145,18 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="オークション落札票" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="オークション落札票" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled checked>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -199,18 +167,18 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="検査書" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="検査書" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -221,18 +189,18 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="自動車損害賠償責任保険（自賠責）" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="自動車損害賠償責任保険（自賠責）" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -243,18 +211,18 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="証継続検査用自動車税納税証明書（納税証明書）" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="証継続検査用自動車税納税証明書（納税証明書）" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -265,18 +233,18 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="印鑑証明書" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="印鑑証明書" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -287,76 +255,30 @@
                                                     <div class="col-md-10">
                                                         
                                                         <div class="col-md-8">
-                                                            <input type="text" required="" placeholder="委任状" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="委任状" id="subject" class="form-control" name="title" disabled>
                                                         </div>
                                                         <div class="">
                                                                 <label class="col-md-1 control-label">納期日</label>
                                                             </div>
                                                         <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
+                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title" disabled>
                                                             <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
+                                                                <input type="checkbox" id="flat-checkbox-1" disabled>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <div class="col-md-1">
-                                                            <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1">
-                                                                <label for="flat-checkbox-1">納品済み</label>
-                                                            </div>
-                                                        </div>
-                                                    <label class="col-md-1 control-label">書類名</label>
-                                                    <div class="col-md-10">
-                                                        
-                                                        <div class="col-md-9">
-                                                            <input type="text" required="" placeholder="オークション落札票" id="subject" class="form-control" name="title">
-                                                        </div>
-                                                        <div class="">
-                                                                <label class="col-md-1 control-label">納期日</label>
-                                                            </div>
-                                                        <div class="col-md-2 has-feedback">
-                                                            <input type="text" required="" placeholder="2099/99/99" id="subject" class="form-control" name="title">
-                                                            <span class=" glyphicon glyphicon-calendar  form-control-feedback"></span>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div> -->
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label"></label>
-                                                    <div class="col-md-10">
-                                                        
-                                                        <div class="col-md-12">
-                                                            <div class="checkbox">
-                                                                    <button class="btn btn-success" type="button"><i class="fas fa-plus"></i>&nbsp;書類の追加</button>
-                                                                    
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
                                             </div>
                                         </div>
                                         
                                         
                                         <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-9">
-                                                <button class="btn btn-primary" type="submit">仕入/出荷登録</button>
-                                                <button class="btn btn-warning" type="submit" formaction="./case_cfn_check.html">内容修正</button>
-                                                <button class="btn btn-default" type="submit">受注残</button>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <button class="btn btn-danger" type="button">案件の削除</button>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-offset-11 col-md-1">
-                                                <button class="btn btn-default">引継ぎ</button>
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <button class="btn btn-primary" type="submit">保存</button>
                                             </div>
                                         </div>
                                     </form>
@@ -370,41 +292,8 @@
             </div><!-- content -->
         </div>
         </div>
-        <!--footer-->
-        <div class="footer">
-            <div class="container">
-                <div class="clearfix">
-                <div class="footer-logo"><a href="#">Bootflat-Admin</a></div>
-                <dl class="footer-nav">
-                    <dt class="nav-title">PORTFOLIO</dt>
-                    <dd class="nav-item"><a href="#">Web Design</a></dd>
-                    <dd class="nav-item"><a href="#">Branding &amp; Identity</a></dd>
-                    <dd class="nav-item"><a href="#">Mobile Design</a></dd>
-                    <dd class="nav-item"><a href="#">Print</a></dd>
-                    <dd class="nav-item"><a href="#">User Interface</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">ABOUT</dt>
-                    <dd class="nav-item"><a href="#">The Company</a></dd>
-                    <dd class="nav-item"><a href="#">History</a></dd>
-                    <dd class="nav-item"><a href="#">Vision</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">GALLERY</dt>
-                    <dd class="nav-item"><a href="#">Flickr</a></dd>
-                    <dd class="nav-item"><a href="#">Picasa</a></dd>
-                    <dd class="nav-item"><a href="#">iStockPhoto</a></dd>
-                    <dd class="nav-item"><a href="#">PhotoDune</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">CONTACT</dt>
-                    <dd class="nav-item"><a href="#">Basic Info</a></dd>
-                    <dd class="nav-item"><a href="#">Map</a></dd>
-                    <dd class="nav-item"><a href="#">Conctact Form</a></dd>
-                </dl>
-                </div>
-                <div class="footer-copyright text-center">Copyright &copy; 2014 YourCompany.All rights reserved.</div>
-            </div>
-        </div>
+        <?php
+include './footer.html';
+        ?>
     </body>
 </html>
