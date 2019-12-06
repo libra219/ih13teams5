@@ -1,73 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <title>Bootflat-Admin Template</title>
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="shortcut icon" href="favicon_16.ico"/>
-        <link rel="bookmark" href="favicon_16.ico"/>
-        <!-- site css -->
-        <link rel="stylesheet" href="./assets/css/site.min.css">
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-        <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css"> -->
-        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-        <script type="text/javascript" src="./assets/js/site.min.js"></script>
+    <?php
+include './head.html';
+        ?>
     </head>
     <body>
         <!--nav-->
         <nav role="navigation" class="navbar navbar-custom">
-            <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand">管理画面</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="getting-started.html">Getting Started</a></li>
-                <li class="active"><a href="index.html">Documentation</a></li>
-                <!-- <li class="disabled"><a href="#">Link</a></li> -->
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Silverbux <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                    <li class="dropdown-header">Setting</li>
-                    <li><a href="#">Action</a></li>
-                    <li class="divider"></li>
-                    <li class="active"><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li class="disabled"><a href="#">Signout</a></li>
-                    </ul>
-                </li>
-                </ul>
-
-            </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+        <?php
+include './navigation.html';
+        ?>
         </nav>
         <!--header-->
         <div class="container-fluid">
         <!--documents-->
             <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
-                <ul class="list-group panel">
-                    <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>SIDE PANEL</b></li>
-                    <li class="list-group-item"><input type="text" class="form-control search-query" placeholder="Search Something"></li>
-                    <li class="list-group-item"><a href="./case_list.html"><i class="fas fa-list"></i>案件一覧 </a></li>
-                    <li class="list-group-item"><a href="./stocking_list.html"><i class="fas fa-list"></i>仕入れ・出荷 </a></li>
-                    
-                </ul>
+<?php
+include './nav_list.html';
+?>
             </div>
             <div class="col-xs-12 col-sm-9 content">
                 <div class="panel panel-default">
@@ -161,41 +113,8 @@
             </div><!-- content -->
         </div>
         </div>
-        <!--footer-->
-        <div class="footer">
-            <div class="container">
-                <div class="clearfix">
-                <div class="footer-logo"><a href="#">Bootflat-Admin</a></div>
-                <dl class="footer-nav">
-                    <dt class="nav-title">PORTFOLIO</dt>
-                    <dd class="nav-item"><a href="#">Web Design</a></dd>
-                    <dd class="nav-item"><a href="#">Branding &amp; Identity</a></dd>
-                    <dd class="nav-item"><a href="#">Mobile Design</a></dd>
-                    <dd class="nav-item"><a href="#">Print</a></dd>
-                    <dd class="nav-item"><a href="#">User Interface</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">ABOUT</dt>
-                    <dd class="nav-item"><a href="#">The Company</a></dd>
-                    <dd class="nav-item"><a href="#">History</a></dd>
-                    <dd class="nav-item"><a href="#">Vision</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">GALLERY</dt>
-                    <dd class="nav-item"><a href="#">Flickr</a></dd>
-                    <dd class="nav-item"><a href="#">Picasa</a></dd>
-                    <dd class="nav-item"><a href="#">iStockPhoto</a></dd>
-                    <dd class="nav-item"><a href="#">PhotoDune</a></dd>
-                </dl>
-                <dl class="footer-nav">
-                    <dt class="nav-title">CONTACT</dt>
-                    <dd class="nav-item"><a href="#">Basic Info</a></dd>
-                    <dd class="nav-item"><a href="#">Map</a></dd>
-                    <dd class="nav-item"><a href="#">Conctact Form</a></dd>
-                </dl>
-                </div>
-                <div class="footer-copyright text-center">Copyright &copy; 2014 YourCompany.All rights reserved.</div>
-            </div>
-        </div>
+        <?php
+include './footer.html';
+        ?>
     </body>
 </html>
