@@ -40,7 +40,13 @@ include './nav_list.html';
                                     <h3 class="panel-title">タイトル</h3>
                                 </div>
                                 <div class="panel-body">
-                                    本文
+                                    <form action="./case_check.html" novalidate="" role="form" class="form-horizontal">
+                                        
+                                        <div class="form-group">
+                                        本文
+                                        </div>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
