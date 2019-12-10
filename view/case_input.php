@@ -2,14 +2,14 @@
 <html lang="ja">
     <head>
     <?php
-include './head.html';
+include './../view/head.html';
         ?>
     </head>
     <body>
         <!--nav-->
         <nav role="navigation" class="navbar navbar-custom">
         <?php
-include './navigation.html';
+include './../view/navigation.html';
         ?>
         </nav>
         <!--header-->
@@ -18,7 +18,7 @@ include './navigation.html';
             <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
             <?php
-include './nav_list.html';
+include './../view/nav_list.html';
 ?>
             </div>
             <div class="col-xs-12 col-sm-9 content">
@@ -29,18 +29,20 @@ include './nav_list.html';
                     
                     <div class="panel-body">
                         <div class="content-row">
+                                <?php if (false): ?>
                                 <div class="alert alert-warning alert-dismissable">
-                                        <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
-                                        <h4>与信限度額到達してます！</h4>
-                                        <p class="lead_">むりぽ</p>
-                                        </p>
-                                    </div>
+                                    <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+                                    <h4>与信限度額到達してます！</h4>
+                                    <p class="lead_">むりぽ</p>
+                                    </p>
+                                </div>
+                                <?php endif; ?>
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">新規案件</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form action="./case_check.html" novalidate="" role="form" class="form-horizontal">
+                                    <form action="./case_input.php" novalidate="" role="form" class="form-horizontal">
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
@@ -284,7 +286,7 @@ include './nav_list.html';
         </div>
         </div>
         <?php
-include './footer.html';
+include './../view/footer.html';
         ?>
     </body>
 </html>

@@ -2,14 +2,14 @@
 <html lang="ja">
     <head>
     <?php
-include './head.html';
+include './../view/head.html';
         ?>
     </head>
     <body>
         <!--nav-->
         <nav role="navigation" class="navbar navbar-custom">
         <?php
-include './navigation.html';
+include './../view/navigation.html';
         ?>
         </nav>
         <!--header-->
@@ -18,7 +18,7 @@ include './navigation.html';
             <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
 <?php
-include './nav_list.html';
+include './../view/nav_list.html';
 ?>
             </div>
             <div class="col-xs-12 col-sm-9 content">
@@ -42,7 +42,7 @@ include './nav_list.html';
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <a href="./case_input.html" class="btn btn-danger navbar-btn">新規案件</a>
+                                <a href="./case_input.php" class="btn btn-danger navbar-btn">新規案件</a>
                             </ul>
                             </li>
                             </ul>
@@ -114,7 +114,7 @@ include './nav_list.html';
         </div>
         </div>
         <?php
-include './footer.html';
+include './../view/footer.html';
         ?>
     </body>
 </html>

@@ -2,14 +2,14 @@
 <html lang="ja">
     <head>
         <?php
-include './head.html';
+include './../view/head.html';
         ?>
     </head>
     <body>
         <!--nav-->
         <nav role="navigation" class="navbar navbar-custom">
         <?php
-include './navigation.html';
+include './../view/navigation.html';
         ?>
         </nav>
         <!--header-->
@@ -18,7 +18,7 @@ include './navigation.html';
             <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
             <?php
-include './nav_list.html';
+include './../view/nav_list.html';
 ?>
             </div>
             <div class="col-xs-12 col-sm-9 content">
@@ -191,7 +191,7 @@ include './nav_list.html';
         </div>
         </div>
         <?php
-include './footer.html';
+include './../view/footer.html';
         ?>
     </body>
 </html>
