@@ -1,4 +1,4 @@
 <?php
 
 // ソース書くところ
-include './../view/index.php';
+include './view/index.php';
