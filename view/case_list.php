@@ -84,22 +84,12 @@ include './../view/nav_list.html';
                     <div class="panel-body">
                         <div class="content-row">
                             <div class="list-group">
-                                <a href="./case_cfn.html" class="list-group-item list-group-item-success">買い注文</a>
-                                <a href="#" class="list-group-item list-group-item-warning">売り注文</a>
-                                <a href="#" class="list-group-item list-group-item-success">買い注文</a>
-                                <a href="#" class="list-group-item list-group-item-warning">売り注文</a>
-                                <a href="#" class="list-group-item list-group-item-success">
-                                    <h4 class="list-group-item-heading">案件名</h4>
+                            <?php foreach ($select_data as $key => $value) :?>
+                                <a href="./case_cfn.php?select=<?=$value['id']?>" class="list-group-item list-group-item-<?php echo ($value['trade']) ? 'warning' : 'success' ;?>">
+                                    <h4 class="list-group-item-heading"><?=$value['id']?></h4>
                                     <p class="list-group-item-text">詳細内容</p>
                                 </a>
-                                <a href="#" class="list-group-item list-group-item-success">
-                                    <h4 class="list-group-item-heading">案件名</h4>
-                                    <p class="list-group-item-text">詳細内容</p>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-warning">
-                                    <h4 class="list-group-item-heading">案件名</h4>
-                                    <p class="list-group-item-text">詳細内容</p>
-                                </a>
+                            <?php endforeach;?>
                                 <a href="#" class="list-group-item list-group-item-primary">ほかの色</a>
                                 <a href="#" class="list-group-item list-group-item-info">ほかの色</a>
                                 <a href="#" class="list-group-item list-group-item-danger">ほかの色</a>
