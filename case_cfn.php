@@ -1,9 +1,9 @@
 <?php
 
 // 定数ファイル読み込み
-require_once './../src/env.php';
+require_once './src/env.php';
 // 関数読み込み
-require_once './../src/func.php';
+require_once './src/func.php';
 
 // 変数初期化
 $select_data;
@@ -68,4 +68,4 @@ if (DEBUG_MODE) {
 
 
 
-include './../view/case_cfn.php';
+include './view/case_cfn.php';

@@ -2,7 +2,7 @@
 namespace ih13teams5;
 
 // 関数読み込み
-require_once './../src/func.php';
+require_once './src/func.php';
 
 // 変数初期化
 
@@ -16,4 +16,4 @@ if ($get->RawDataGet()){
 var_dump($get->RawDataGet());
 
 
-include './../view/case_input.php';
+include './view/case_input.php';
