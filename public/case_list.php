@@ -8,6 +8,8 @@ require_once './../src/func.php';
 
 // 変数初期化
 $select_data;
+const DEBUG_MODE = true;
+
 
 // DB接続
 $mysql = new mysqli(HOST,USERNAME,PASSWORD,DBNAME);
@@ -17,7 +19,7 @@ if ($mysql->connect_error) {
     $mysql->set_charset('utf8');    
 }
 
-$select_sql = 'SELECT `id`, `trade`, `budget`, `clearing`, `remarks`, `billing_id`, `client_id`, `employees_id`, `ensure_id`, `car_id`, `date`, `update_date` 
+$select_sql = 'SELECT `id`, `name`, `trade`, `client_id`, `employees_id`, `ensure_id`, `car_id`, `date`, `update_date` 
 FROM `issue` 
 ORDER BY date DESC ';
 
@@ -29,7 +31,12 @@ if ($result = $mysql->query($select_sql)) {
 
 $mysql->close();
 
-var_dump($select_data);
+
+// デバック
+if (DEBUG_MODE) {
+    var_dump($select_data);
+    
+}
 
 
 include './../view/case_list.php';
