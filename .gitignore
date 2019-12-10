@@ -10,6 +10,9 @@
 *.vi
 *~
 
+# File
+env.php
+
 # OS or Editor folders
 .DS_Store
 ._*
