@@ -45,7 +45,7 @@ include './../view/nav_list.html';
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
                                             <!-- <input type="text" required="" placeholder="Title" id="title" class="form-control" name="title"> -->
-                                                <div class="well">案件名</div>
+                                                <div class="well"><?=$select_data['name']?></div>
                                             </div>
                                             <label class="col-md-2 control-label">企業名</label>
                                             <div class="col-md-10">
@@ -112,7 +112,7 @@ include './../view/nav_list.html';
                                                     <label class="col-md-2 control-label">金額</label>
                                                     <div class="col-md-10 input-group">
                                                         <span class="input-group-addon">￥</span>
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['budget'] ?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 
