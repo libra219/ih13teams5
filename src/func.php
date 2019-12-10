@@ -27,7 +27,7 @@ class GetState
      * 取得できれば値を返し、できなければfalseを返す。
      * 
      * @param string $str 取得するキー
-     * @return string|boolean 未取得時falseを返す。
+     * @return string|false 未取得時falseを返す。
      */
     public function Get($str)
     {
@@ -38,7 +38,7 @@ class GetState
      * HTMLエンティティ化してGETするメソッド
      * 
      * @param string $str 取得するキー、ただし送られてくるものが配列出ないこと
-     * @return string 正しく取得できればエンティティ化して取得、取得できなければfalseを返す。
+     * @return string|false 正しく取得できればエンティティ化して取得、取得できなければfalseを返す。
      */
     public function hGet($str)
     {
@@ -49,7 +49,7 @@ class GetState
      * GetをIntにして返すメソッド
      * 
      * @param string $str 取得するキー
-     * @return Int 型に変換して返す。数値でなければfalseを返す。
+     * @return Int|false 型に変換して返す。数値でなければfalseを返す。
      */
     public function IntGet($str)
     {
