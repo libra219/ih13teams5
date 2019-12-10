@@ -7,7 +7,10 @@ require_once './../src/func.php';
 
 // 変数初期化
 $select_data;
+$select_id;
 $getState = new ih13teams5\GetState();
+
+
 
 const DEBUG_MODE = true;
 
@@ -27,9 +30,9 @@ if ($mysql->connect_error) {
     $mysql->set_charset('utf8');    
 }
 
-$select_sql = 'SELECT `id`, `trade`, `budget`, `clearing`, `remarks`, `billing_id`, `client_id`, `employees_id`, `ensure_id`, `car_id`, `date`, `update_date` 
+$select_sql = 'SELECT *
 FROM `issue`
-WHERE = ?  
+WHERE id = ?  
 ORDER BY date DESC ';
 
 if($stmt = $mysql->prepare($select_sql)){
@@ -42,7 +45,7 @@ if($stmt = $mysql->prepare($select_sql)){
         
         // 結果を出力
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            
+            $select_data = $row;
         }
     }
     // 結果セットを開放
@@ -57,7 +60,11 @@ $mysql->close();
 
 
 
-
+// デバック
+if (DEBUG_MODE) {
+    var_dump($select_data);
+    
+}
 
 
 
