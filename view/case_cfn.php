@@ -50,7 +50,7 @@ include './view/nav_list.html';
                                             <label class="col-md-2 control-label">企業名</label>
                                             <div class="col-md-10">
                                             <!-- <input type="text" required="" placeholder="Title" id="title" class="form-control" name="title"> -->
-                                                <div class="well">〇〇社</div>
+                                                <div class="well"><?=$select_data['company']?></div>
                                             </div>
                                         </div>
                                        
@@ -65,38 +65,38 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車輌型式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_model']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車両名</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text"  value="<?=$select_data['vehicle_name']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">色</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_color']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">年式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_year']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">走行距離</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['mileage']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">ミッション</label>
                                                     <div class="col-md-10 ">
 
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['mission']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     
                                                     </div>
                                                 </div>
@@ -279,7 +279,7 @@ include './view/nav_list.html';
                                                         
                                                     </div>
                                                 </div> -->
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label class="col-md-2 control-label"></label>
                                                     <div class="col-md-10">
                                                         
@@ -291,7 +291,7 @@ include './view/nav_list.html';
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                 -->
                                             </div>
                                         </div>
                                         

@@ -25,15 +25,16 @@ if (!$select_id) {
 // DB接続
 $mysql = new mysqli(HOST,USERNAME,PASSWORD,DBNAME);
 if ($mysql->connect_error) {
-    \var_dump($mysqli->connect_error);
+    \var_dump($mysql->connect_error);
 } else {
     $mysql->set_charset('utf8');    
 }
 
-$select_sql = 'SELECT *
-FROM `issue`
-WHERE id = ?  
-ORDER BY date DESC ';
+$select_sql = "SELECT `issue`.`id`,`issue`.`name` AS name, trade, budget, remarks, `car`.`carno` AS vehicle_model, `car`.`carname` AS vehicle_name, `car`.`manufacturer`, `car`.`modelyear` AS vehicle_year, `car`.`mileage` AS mileage, `car`.`color` AS vehicle_color, `car`.`transmission` AS mission, `client`.`company`
+FROM issue
+INNER JOIN car ON issue.car_id = car.id 
+INNER JOIN client ON issue.client_id = client.id 
+WHERE issue.id = ? ";
 
 if($stmt = $mysql->prepare($select_sql)){
 
@@ -47,13 +48,12 @@ if($stmt = $mysql->prepare($select_sql)){
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $select_data = $row;
         }
+        // 結果セットを開放
+        $result->free();
     }
-    // 結果セットを開放
-    $result->free();
+    // ステートメントの終了
+    $stmt->close();
 }
-// ステートメントの終了
-$stmt->close();
-
 $mysql->close();
 
 
