@@ -10,7 +10,6 @@ require_once './src/func.php';
 $select_data;
 const DEBUG_MODE = true;
 
-
 // DB接続
 $mysql = new mysqli(HOST,USERNAME,PASSWORD,DBNAME);
 if ($mysql->connect_error) {

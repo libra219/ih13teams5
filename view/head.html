@@ -14,4 +14,24 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
+        
         <script type="text/javascript" src="./assets/js/site.min.js"></script>
+        <script>
+                        $(function() {
+                        $('#category_all').on('click', function() {
+                            $('.category').prop('checked', this.checked);
+                        });
+                
+                        $('.category').on('click', function() {
+                            if ($('.checkbox :checked').length == $('.checkbox :input').length){
+                            $('#category_all').prop('checked', 'checked');
+                            }else{
+                            $('#category_all').prop('checked', false);
+                            }
+                        });
+                        });
+                    </script>
+
+                      
+
+        
