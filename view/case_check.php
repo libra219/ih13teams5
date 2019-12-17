@@ -45,13 +45,13 @@ include './view/nav_list.html';
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
-                                            <input type="text" required="" placeholder="Title" id="title" class="form-control" name="title" disabled>
+                                            <input type="text" value="<?=$get_data['title']?>" required="" placeholder="Title" id="title" class="form-control" name="title" disabled>
                                             <div class="radio col-md-3">
-                                                <input type="radio" id="flat-radio-1" name="form" checked disabled>
+                                                <input type="radio" id="flat-radio-1" name="order" value="buy" checked disabled>
                                                 <label for="flat-radio-1">買注文</label>
                                             </div>
                                             <div class="radio col-md-3">
-                                                <input type="radio" id="flat-radio-2" name="form" disabled>
+                                                <input type="radio" id="flat-radio-2" name="order" value="self" disabled>
                                                 <label for="flat-radio-2">売注文</label>
                                             </div>
                                             </div>
@@ -67,43 +67,43 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">企業名</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="株式会社" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['company_name']?>" required="" placeholder="株式会社" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">代表者名</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="名前" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['rep_name']?>" required="" placeholder="名前" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">担当者名</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="名前" id="subject" class="form-control" name="title"disabled>
+                                                    <input type="text" value="<?=$get_data['cont_name']?>" required="" placeholder="名前" id="subject" class="form-control" name="title"disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">電話番号</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="09012345678" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['tel']?>" required="" placeholder="09012345678" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">メールアドレス</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="a@g.c" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['mail']?>" required="" placeholder="a@g.c" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">住所</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="住所" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['pref_name'].$get_data['address']?>" required="" placeholder="住所" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label" for="description">その他特記事項</label>
                                                     <div class="col-md-10">
-                                                    <textarea required="" class="form-control" placeholder="Description" rows="3" cols="30" id="description" name="description" disabled></textarea>
+                                                    <textarea required="" class="form-control" placeholder="Description" rows="3" cols="30" id="description" name="description" disabled><?=$get_data['notices']?></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,37 +118,37 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車輌型式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['vehicle_model']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車両名</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['vehicle_name']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">色</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['vehicle_color']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">年式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['vehicle_year']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">走行距離</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['mileage']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">ミッション</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['mission']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,7 +163,7 @@ include './view/nav_list.html';
                                                     <label class="col-md-2 control-label">金額</label>
                                                     <div class="col-md-10 input-group">
                                                         <span class="input-group-addon">￥</span>
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
+                                                    <input type="text" value="<?=$get_data['budget']?>" required="" placeholder="" id="subject" class="form-control" name="title" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@ include './view/nav_list.html';
                                         
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                            <button class="btn btn-info" type="submit">登録</button>
+                                            <button class="btn btn-info" type="submit" name="submit" value="reg">登録</button>
                                             </div>
                                         </div>
                                     </form>
