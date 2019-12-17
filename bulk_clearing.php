@@ -16,7 +16,7 @@ $_SESSION['id'] = 1;
 $select_data;
 $select_data_client;
 const DEBUG_MODE = true;
-// 入力日 年　月
+// 入力日 年-月
 $initialize_date = date("Y-m");
 $_day = '-10';
 $bulk_date = $initialize_date.$_day;
@@ -216,10 +216,6 @@ if($_POST['bulk_button'] == 'bulk'){
          
 
     }
-
-
- 
-       
     
 }
 
