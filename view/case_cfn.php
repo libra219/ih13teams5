@@ -299,7 +299,7 @@ include './view/nav_list.html';
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-9">
                                                 <button class="btn btn-primary" type="submit">仕入/出荷登録</button>
-                                                <button class="btn btn-warning" type="submit" formaction="./case_cfn_check.html">内容修正</button>
+                                                <button class="btn btn-warning" type="submit" formaction="./case_cfn_check.php">内容修正</button>
                                                 <button class="btn btn-default" type="submit">受注残</button>
                                             </div>
                                             <div class="col-md-1">

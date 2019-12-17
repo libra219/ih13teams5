@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // 定数ファイル読み込み
 require_once './src/env.php';
@@ -17,7 +18,7 @@ const DEBUG_MODE = true;
 
 $select_id = $getState->IntGet('select');
 if (!$select_id) {
-    header( "Location: http://127.0.0.1:8000/public/case_list.php" ) ;
+    header( 'Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/case_list.php'  ) ;
 	exit ;
 }
 
@@ -56,7 +57,7 @@ if($stmt = $mysql->prepare($select_sql)){
 }
 $mysql->close();
 
-
+$_SESSION['select_data'] = $select_data;
 
 
 
