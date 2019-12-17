@@ -320,7 +320,7 @@ include './view/nav_list.html';
                                                 <button class="btn btn-default" type="submit">受注残</button>
                                             </div>
                                             <div class="col-md-1">
-                                                <button class="btn btn-danger" type="button">案件の削除</button>
+                                                <button class="btn btn-danger" type="submit" formaction="./case_del.php?" name="del_id" value="<?=$select_data['id']?>">案件の削除</button>
                                             </div>
                                         </div>
                                         <div class="form-group">
