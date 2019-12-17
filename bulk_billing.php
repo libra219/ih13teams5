@@ -86,6 +86,7 @@ $trabe = null;
 $name = null;
 $result_issue = array();
 
+// 一括処理ボタン
 if($_POST['bulk_button'] == 'bulk'){
 
 

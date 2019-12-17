@@ -9,19 +9,28 @@ require_once './src/func.php';
 
 session_start();
 
+// 社員ID格納
+$_SESSION['id'] = 1;
+
 // 変数初期化
 $select_data;
+$select_data_client;
 const DEBUG_MODE = true;
 $initialize_date = date("Y-m");
 $_day = '-10';
 $bulk_date = $initialize_date.$_day;
 $bulk_time = '23:00';
-$count = null;
+$count = 0;
+
 
 $bid = null;
 $fee = null;
 $bidfee = null;
 $expensess = null;
+$amount = null;
+$client_id = null;
+$issue_id = null;
+$billing = 0;
 
 
 // DB接続
@@ -30,15 +39,13 @@ if ($mysql->connect_error) {
     \var_dump($mysqli->connect_error);
 } else {
     $mysql->set_charset('utf8');    
-    echo '成功';
+    // echo '成功';
     
 }
-$sql_select = 'SELECT `issue`.`name`, `trade`,`client_id`, `issue`.`employees_id`, `ensure_id`, `car_id`, `issue`.`date`, `clearing`.`date`, `billing`.`date`,`update_date`, `abbreviation`, `purchasing`.`issue_id`, `manufacturer`, `carno`, `carname`, `modelyear`, `bid`, `bidfee`, `fee`, `expensess` ,`doc_flg` FROM `issue` LEFT OUTER JOIN `client` ON issue.client_id = client.id LEFT OUTER JOIN `purchasing` ON `issue`.`id` = `purchasing`.`issue_id` LEFT OUTER JOIN `car` ON `issue`.`car_id` = `car`.`id` LEFT OUTER JOIN `documents` ON `issue`.`id` = `documents`.`issue_id` LEFT OUTER JOIN `billing` ON `issue`.`id` = `billing`.`issue_id` LEFT OUTER JOIN `clearing` ON `issue`.`id` = `clearing`.`issue_id` WHERE `billing`.`date` IS NOT NULL AND `clearing`.`date` IS NULL AND `documents`.`doc_flg` IS NOT NULL ORDER BY `issue`.`date` DESC';
-// echo $sql_select;
 
-$int_array;
+$int_array = array();
 $int_sum = null;
-$list_int = array(array());
+$list_int = array();
 
 if($_POST['confirm_button'] == 'confirm'){
   
@@ -55,20 +62,40 @@ if($_POST['confirm_button'] == 'confirm'){
     //当月の固定の入金締め日 処理時間
     $defult_date = $defult_date.'-10 23:00:00';
 
+    $str = 'amount';
+    // 請求済みで消し込み可能なデータ取得
+    $sql_select = 'SELECT `issue`.`name`, `trade`,`client_id`, `issue`.`employees_id`, `ensure_id`, `car_id`, `issue`.`date`, `clearing`.`date`, `billing`.`date`,`update_date`, `abbreviation`, `purchasing`.`issue_id`, `manufacturer`, `carno`, `carname`, `modelyear`, `bid`, `bidfee`, `fee`, `expensess` ,`doc_flg`, '.$str.' FROM `issue` LEFT OUTER JOIN `client` ON issue.client_id = client.id LEFT OUTER JOIN `purchasing` ON `issue`.`id` = `purchasing`.`issue_id` LEFT OUTER JOIN `car` ON `issue`.`car_id` = `car`.`id` LEFT OUTER JOIN `documents` ON `issue`.`id` = `documents`.`issue_id` LEFT OUTER JOIN `billing` ON `issue`.`id` = `billing`.`issue_id` LEFT OUTER JOIN `clearing` ON `issue`.`id` = `clearing`.`issue_id` WHERE `billing`.`date` IS NOT NULL AND `clearing`.`date` IS NULL AND `documents`.`doc_flg` IS NOT NULL ORDER BY `issue`.`date` DESC';
+    // echo $sql_select;
+    
+
+
     if ($result = $mysql->query($sql_select)) {
         while ($row = $result->fetch_assoc()) {
             $select_data[] = $row;
+            // echo '成功';
         }
         //  var_dump($select_data);
-    }
+        $_SESSION['select_data'] = $select_data;
 
+    }
+    
+    
     foreach($select_data as $array){
         $int_sum = null;
         foreach($array as $key => $value){
-            // 単価
-            if($key == 'issue_id'){
+            // 顧客ID
+            if($key == 'client_id'){
+                $client_id = $value;
+            }
+            // 顧客残高
+            if($key == 'amount'){
+                $amount = $value;
+            }
+            // 案件ID
+            if(strcmp($key, "issue_id") == 0){
                 $issue_id = $value;
             }
+            // 単価
             if($key == 'bid'){
                 // echo $key.$value;
                 $int_sum += intval($value);
@@ -88,55 +115,106 @@ if($_POST['confirm_button'] == 'confirm'){
                 // echo $key.$value;
                 $int_sum += intval($value);
             }
-            
         }
 
-        $int_array[] = array($issue_id, $int_sum);
-        
-        
+         $int_array += array($count =>array('issue_id' => $issue_id,'client_id' => $client_id, 'all_billing' => $int_sum, 'amount' => $amount));
+        $count++;
     }
-    var_dump($int_array);
+    // var_dump($int_array);
+    
+   
+    //初期化    
+    $count =0;
 
+    // 繰越件数
+    $carry_over_number = 0;
+    // 消し込み件数
+    $clearing_number = 0;
+
+    // 顧客の残高と請求金額を比較して 繰越件数と消込件数を取得
+    foreach($int_array as $array){
+        
+        $amount = intval($array['amount']);
+        $billing = intval($array['all_billing']);
+        $issue_id = $array['issue_id'];
+
+        // 繰越か消し込み可能か
+        switch($amount){
+            case 0:
+                // echo '失敗　null';
+                $carry_over_number++;
+            break;
+            case $amount == $billing:
+                $clearing_number++;
+                // echo '同額 消し込み可能';
+            break;
+            case $amount > $billing:
+                $clearing_number++;
+                echo '残高の方が多い';
+            break;
+            case $amount < $billing:
+                $carry_over_number++;
+                // echo '請求の方が多い';
+            break;
+        }
+    }
+
+    // 件数格納
+    $_SESSION['carr_over'] = $carry_over_number; 
+    $_SESSION['clearing'] = $clearing_number;
+    
+    $_SESSION['select_array'] = $int_array;
+
+   
 }else{
     echo false;
 }
 
 
 $emplayees_id = null;
-$issue_id = null;
 
+// $int_ararry array($count =>array('issue_id' => $issue_id,'client_id' => $client_id, 'all_billing' => $int_sum, 'amount' => $amount));
+
+
+// 一括処理ボタン
 if($_POST['bulk_button'] == 'bulk'){
 
-    $select_data = $_SESSION['select_array'];
+    $select_array = array();
+    // 社員ID
+    $emplayees_id = $_SESSION['id'];
+
+    $select_array = $_SESSION['select_array'];
+    var_dump($_POST);
+
+    // 一括処理日
     $bulk_date = $_SESSION['bulk_datetime'];
 
-    foreach($select_data as $array){
-        foreach($array as $key => $value){
-            // 本来はログインしている社員のId
-            if(strcmp($key, "employees_id") == 0){
-                $emplayees_id = $value;
-                // echo $kay;
-                // echo $emplayees_id;
-                
-            }
-            if(strcmp($key, "issue_id") == 0){
-                $issue_id = $value;
-                echo $key;
-                echo $issue_id;
-                echo '<br>';
-            }
-        // 本当はログインしている社員IDを入れないといけない
-        }
-        // $clearing_insert_sql = 'INSERT INTO `billing` (`issue_id`, `date`, `employees_id`) VALUES ('.$issue_id.',"'.$bulk_date.'",'.$emplayees_id.')';
+    foreach($select_array as $array){
         
-        // if($result = $mysql->query($biing_insert_sql)) {
+        // 案件ID取得
+        $issue_id = $array['issue_id'];
+
+        // clearing INSERTO 社員ID 案件ID 消し込み処理日
+        $clearing_insert_sql = 'INSERT INTO `billing` (`issue_id`, `date`, `employees_id`) VALUES ('.$issue_id.',"'.$bulk_date.'",'.$emplayees_id.')';
+        echo $clearing_insert_sql;
+
+        echo $clearing_insert_sql;
         
-        // }
+         // UPDATE　残高amount　顧客指定　client_id
+        $billing = intval($array['all_billing']);
+        $client_id = $array['client_id'];
+
+        $client_update_sql = 'UPDATE `client` SET `amount`=amount- '.$billing.' WHERE id = '.$client_id.'';
+        echo $client_update_sql;
+        
+
     }
+
+
+ 
+       
+    
 }
-
-
-
 
 $mysql->close();
 

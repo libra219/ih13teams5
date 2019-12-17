@@ -59,7 +59,7 @@ include './view/nav_list.html';
                                 </div>
                                 <div class="modal-footer">
                                             <button class="btn btn-info" type="submit" name='confirm_button'
-                                                value="confirm">確認</button>
+                                                value="confirm">案件確認</button>
                                         </div>
                                     </form>
                            
