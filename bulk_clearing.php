@@ -15,7 +15,7 @@ $_SESSION['id'] = 1;
 // 変数初期化
 $select_data;
 $select_data_client;
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 // 入力日 年-月
 $initialize_date = date("Y-m");
 $_day = '-10';

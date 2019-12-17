@@ -8,7 +8,7 @@ require_once './src/env.php';
 require_once './src/func.php';
 
 // 変数初期化
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 $get = new ih13teams5\GetState();
 $get_data = $get->RawDataGet();
 $select_data;

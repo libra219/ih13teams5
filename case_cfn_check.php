@@ -8,7 +8,7 @@ require_once './src/env.php';
 require_once './src/func.php';
 
 // 変数初期化
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 $get_data;
 $raw_get = new ih13teams5\GetState();
 $submit = $raw_get->Get("submit");
@@ -26,7 +26,6 @@ $get_data = $raw_get->RawDataGet();
 
 $select_data = $_SESSION['select_data'];
 
-var_dump($select_data['car_id'] ,$select_data['documents_id'] );
 
 // 書類登録完了ならDBの日付、登録されてなくてチェックが入ってれば今日の日付を入れる。
 $get_data['biddoc'] = (!empty($select_data['biddoc'])) ? $select_data['biddoc'] : (!empty($get_data['biddoc'])) ? date('Y-m-d') : $select_data['biddoc'] ;
