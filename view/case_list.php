@@ -87,13 +87,9 @@ include './view/nav_list.html';
                             <?php foreach ($select_data as $key => $value) :?>
                                 <a href="./case_cfn.php?select=<?=$value['id']?>" class="list-group-item list-group-item-<?php echo ($value['trade']) ? 'warning' : 'success' ;?>">
                                     <h4 class="list-group-item-heading"><?=$value['name']?></h4>
-                                    <p class="list-group-item-text">詳細内容</p>
+                                    <p class="list-group-item-text"></p>
                                 </a>
                             <?php endforeach;?>
-                                <a href="#" class="list-group-item list-group-item-primary">ほかの色</a>
-                                <a href="#" class="list-group-item list-group-item-info">ほかの色</a>
-                                <a href="#" class="list-group-item list-group-item-danger">ほかの色</a>
-                                <a href="#" class="list-group-item ">ほかの色</a>
                             </div>
                         </div>
                     </div>
