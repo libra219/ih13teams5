@@ -31,7 +31,7 @@ include './view/nav_list.html';
                         <div class="content-row">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">仕入・出荷内容（買い注文、売り注文）</h3>
+                                    <h3 class="panel-title">仕入・出荷内容</h3>
                                 </div>
                                 <div class="panel-body">
                                     <form action="./stocking_check.html" novalidate role="form" class="form-horizontal">
@@ -39,75 +39,77 @@ include './view/nav_list.html';
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
                                             <!-- <input type="text" required="" placeholder="Title" id="title" class="form-control" name="title"> -->
-                                                <div class="well">案件名</div>
+                                                <div class="well"><?=$select_data['name']?></div>
                                             </div>
                                             <label class="col-md-2 control-label">企業名</label>
                                             <div class="col-md-10">
                                             <!-- <input type="text" required="" placeholder="Title" id="title" class="form-control" name="title"> -->
-                                                <div class="well">〇〇社</div>
+                                                <div class="well"><?=$select_data['company']?></div>
                                             </div>
                                         </div>
                                        
                                         
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">仕入車両情報</h3>
+                                                <h3 class="panel-title">車両情報<label style="margin-left: auto; margin-right: auto;">▼</label></h3>
+                                                
                                             </div>
                                             <div class="panel-body">
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">車両検索</label>
-                                                    
-                                                    <div class="col-md-10">
-                                                        <select name="selecter_basic" class="selecter_1">
-                                                            <optgroup label="Group One">
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </optgroup>
-                                                            <optgroup label="Group One">
-                                                                <option value="4">Four</option>
-                                                                <option value="5">Five</option>
-                                                                <option value="6">Six</option>
-                                                                <option value="7">Seven</option>
-                                                            </optgroup>
-                                                            <optgroup label="Group Three">
-                                                                <option value="8">Eight</option>
-                                                                <option value="9">Nine</option>
-                                                                <option value="10">Ten</option>
-                                                            </optgroup>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">車輌型式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_model']?>" required="" placeholder="" id="subject" class="form-control" name="vehicle_model">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">車両名</label>
+                                                    <div class="col-md-10">
+                                                    <input type="text"  value="<?=$select_data['vehicle_name']?>" required="" placeholder="" id="subject" class="form-control" name="vehicle_name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">メーカー名</label>
+                                                    <div class="col-md-10">
+                                                    <input type="text" value="<?=$select_data['manufacturer']?>" required="" placeholder="" id="subject" class="form-control" name="manufacturer">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">色</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_color']?>" required="" placeholder="" id="subject" class="form-control" name="vehicle_color">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">年式</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['vehicle_year']?>" required="" placeholder="" id="subject" class="form-control" name="vehicle_year">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">走行距離</label>
                                                     <div class="col-md-10">
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['mileage']?>" required="" placeholder="" id="subject" class="form-control" name="mileage">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">ミッション</label>
                                                     <div class="col-md-10 ">
 
-                                                    <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                    <input type="text" value="<?=$select_data['transmission']?>" required="" placeholder="" id="subject" class="form-control" name="transmission">
                                                     
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">修復歴</label>
+                                                    <div class="col-md-10 ">
+                                                        <input type="text" value="<?=$select_data['restration']?>" required="" placeholder="" id="subject" class="form-control" name="restration" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">車検</label>
+                                                    <div class="col-md-10 ">
+                                                        <input type="date" value="<?=$select_data['inspection']?>" required="" placeholder="" id="subject" class="form-control" name="inspection" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,32 +123,38 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">単価</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['bid']?>" required="" placeholder="" id="subject" class="form-control" name="title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">落札手数料</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['bidfee']?>" required="" placeholder="" id="subject" class="form-control" name="bidfee">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">消費税</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['fee']?>" required="" placeholder="" id="subject" class="form-control" name="fee">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">手続き手数料</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['expensess']?>" required="" placeholder="" id="subject" class="form-control" name="expensess">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">仕入先</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" value="<?=$select_data['supplier']?>" required="" placeholder="" id="subject" class="form-control" name="supplier">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">日付</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="date" value="<?=$select_data['getdate']?>" required="" placeholder="" id="subject" class="form-control" name="getdate">
                                                     </div>
                                                 </div>
                                             </div>
