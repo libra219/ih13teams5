@@ -162,6 +162,33 @@ if (!empty($get_data) && !empty($submit)) {
         // ステートメントの終了
         $stmt->close();
     }
+    $get_id_sql = "SELECT LAST_INSERT_ID()";
+
+    if ($result = $mysql->query($get_id_sql)){
+        while ($row = $result->fetch_assoc()) {
+            $issue_id = $row['LAST_INSERT_ID()'];
+        }
+    }
+
+
+    // 書類情報の登録
+    if ($jump == 'ok') {
+        // 案件の登録
+        $insert_issue_sql = "INSERT INTO `documents`(`issue_id`)
+        VALUES (?)";
+
+        if($stmt = $mysql->prepare($insert_issue_sql)){
+            
+            $stmt->bind_param('i'
+            , $issue_id );
+            if ($stmt->execute()) {
+
+            }
+            
+            // ステートメントの終了
+            $stmt->close();
+        }
+    }
 
 
     $mysql->close();

@@ -31,10 +31,11 @@ if ($mysql->connect_error) {
     $mysql->set_charset('utf8');    
 }
 
-$select_sql = "SELECT `issue`.`id`,`issue`.`name` AS name, trade, budget, remarks, `car`.`carno` AS vehicle_model, `car`.`carname` AS vehicle_name, `car`.`manufacturer`, `car`.`modelyear` AS vehicle_year, `car`.`mileage` AS mileage, `car`.`color` AS vehicle_color, `car`.`transmission` AS mission, `client`.`company`
+$select_sql = "SELECT `issue`.`id` AS id,`issue`.`name` AS name, car_id,trade, budget, remarks, `car`.`carno` AS vehicle_model, `car`.`carname` AS vehicle_name, `car`.`manufacturer`, `car`.`modelyear` AS vehicle_year, `car`.`mileage` AS mileage, `car`.`color` AS vehicle_color, `car`.`transmission` AS transmission, restration, inspection, `client`.`company` , `documents`.`id` AS documents_id,`biddoc`, `biddoc_end`, `inspeciondoc`, `inspeciondoc_end`, `liabilityinsu`, `liabilityinsu_end`, `taxcert`, `taxcert_end`, `sealcert`, `sealcert_end`, `warrant`, `warrant_end`, `doc_flg`
 FROM issue
 INNER JOIN car ON issue.car_id = car.id 
 INNER JOIN client ON issue.client_id = client.id 
+INNER JOIN documents ON issue.id = documents.issue_id
 WHERE issue.id = ? ";
 
 if($stmt = $mysql->prepare($select_sql)){
@@ -56,6 +57,16 @@ if($stmt = $mysql->prepare($select_sql)){
     $stmt->close();
 }
 $mysql->close();
+
+
+// DBのDate形式の時間表示を削除
+$select_data['inspection'] = str_replace(' 00:00:00', '', $select_data['inspection']);
+$select_data['biddoc_end'] = str_replace(' 00:00:00', '', $select_data['biddoc_end']);
+$select_data['inspeciondoc_end'] = str_replace(' 00:00:00', '', $select_data['inspeciondoc_end']);
+$select_data['liabilityinsu_end'] = str_replace(' 00:00:00', '', $select_data['liabilityinsu_end']);
+$select_data['taxcert_end'] = str_replace(' 00:00:00', '', $select_data['taxcert_end']);
+$select_data['sealcert_end'] = str_replace(' 00:00:00', '', $select_data['sealcert_end']);
+$select_data['warrant_end'] = str_replace(' 00:00:00', '', $select_data['warrant_end']);
 
 $_SESSION['select_data'] = $select_data;
 
