@@ -16,6 +16,7 @@ $_SESSION['id'] = 1;
 $select_data;
 $select_data_client;
 const DEBUG_MODE = true;
+// 入力日 年　月
 $initialize_date = date("Y-m");
 $_day = '-10';
 $bulk_date = $initialize_date.$_day;
@@ -195,18 +196,24 @@ if($_POST['bulk_button'] == 'bulk'){
         $issue_id = $array['issue_id'];
 
         // clearing INSERTO 社員ID 案件ID 消し込み処理日
-        $clearing_insert_sql = 'INSERT INTO `billing` (`issue_id`, `date`, `employees_id`) VALUES ('.$issue_id.',"'.$bulk_date.'",'.$emplayees_id.')';
-        echo $clearing_insert_sql;
-
-        echo $clearing_insert_sql;
+        $clearing_insert_sql = 'INSERT INTO `clearing`(`employees_id`, `issue_id`, `date`) VALUES ('.$emplayees_id.','.$issue_id.',"'.$bulk_date.'")';
+        // echo $clearing_insert_sql;
         
-         // UPDATE　残高amount　顧客指定　client_id
+        if($result = $mysql->query($clearing_insert_sql)) {
+            // var_dump($result);
+        }
+
+        // UPDATE　残高amount　顧客指定　client_id
         $billing = intval($array['all_billing']);
         $client_id = $array['client_id'];
 
         $client_update_sql = 'UPDATE `client` SET `amount`=amount- '.$billing.' WHERE id = '.$client_id.'';
         echo $client_update_sql;
-        
+
+        // if($result = $mysql->query($client_update_sql)) {
+        // var_dump($result);
+        // }
+         
 
     }
 
