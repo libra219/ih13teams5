@@ -48,7 +48,7 @@ if ($get->RawDataGet()){
         $alert_msg['input_empty'] = '顧客情報と予算は必須項目です';
     }else {
         $_SESSION['get_data'] = $get_data;
-        header( 'Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'case_check.php' ) ;
+        header( 'Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/case_check.php' ) ;
         exit ;
     }
 }
@@ -58,7 +58,7 @@ if ($get->RawDataGet()){
  if (DEBUG_MODE) {
      \var_dump($alert_msg);
      var_dump($get_data);
-     \var_dump('http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'case_check.php');
+     \var_dump('http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/case_check.php');
  }
 
 
