@@ -46,13 +46,13 @@ include './view/nav_list.html';
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
-                                            <input type="text" value="<?php echo(!empty($get_data['title'])) ? $get_data['title'] : '' ;?>" required="" placeholder="Title" id="title" class="form-control" name="title">
+                                            <input type="text" value="<?php echo(!empty($get_data['title'])) ? $get_data['title'] : '' ;?>" required="" placeholder="タイトル" id="title" class="form-control" name="title">
                                             <div class="radio col-md-3">
-                                                <input type="radio" id="flat-radio-1" name="form">
+                                                <input type="radio" id="flat-radio-1" name="trade" value="0" checked>
                                                 <label for="flat-radio-1">買注文</label>
                                             </div>
                                             <div class="radio col-md-3">
-                                                <input type="radio" id="flat-radio-2" name="form">
+                                                <input type="radio" id="flat-radio-2" name="trade" value="1">
                                                 <label for="flat-radio-2">売注文</label>
                                             </div>
                                             </div>
@@ -95,6 +95,12 @@ include './view/nav_list.html';
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="col-md-2 control-label">略称</label>
+                                                    <div class="col-md-10">
+                                                    <input type="text" value="<?php echo(!empty($get_data['abbreviation'])) ? $get_data['title'] : '' ;?>" required="" placeholder="" id="subject" class="form-control" name="abbreviation" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label class="col-md-2 control-label">代表者名</label>
                                                     <div class="col-md-10">
                                                     <input type="text" value="<?php echo(!empty($get_data['rep_name'])) ? $get_data['title'] : '' ;?>" required="" placeholder="名前" id="subject" class="form-control" name="rep_name" >
@@ -116,6 +122,12 @@ include './view/nav_list.html';
                                                     <label class="col-md-2 control-label">メールアドレス</label>
                                                     <div class="col-md-10">
                                                     <input type="text" value="<?php echo(!empty($get_data['mail'])) ? $get_data['title'] : '' ;?>" required="" placeholder="a@g.c" id="subject" class="form-control" name="mail">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">郵便番号</label>
+                                                    <div class="col-md-2">
+                                                    <input type="text" value="" required="" placeholder="123-4567" id="subject" class="form-control" name="zip">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -172,14 +184,8 @@ include './view/nav_list.html';
                                                             <option value="沖縄県">沖縄県</option>
                                                         </select> 
                                                     </div>
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-offset-2 col-md-10">
                                                     <input type="text" value="<?php echo(!empty($get_data['address'])) ? $get_data['title'] : '' ;?>" required="" placeholder="住所" id="subject" class="form-control" name="address">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label" for="description">その他特記事項</label>
-                                                    <div class="col-md-10">
-                                                    <textarea required="" class="form-control" placeholder="Description" rows="3" cols="30" id="description" name="notices"><?php echo(!empty($get_data['title'])) ? $get_data['notices'] : '' ;?></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,6 +233,12 @@ include './view/nav_list.html';
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="col-md-2 control-label">メーカー名</label>
+                                                    <div class="col-md-10">
+                                                    <input type="text" value="<?php echo(!empty($get_data['manufacturer'])) ? $get_data['title'] : '' ;?>" required="" placeholder="メーカー" id="subject" class="form-control" name="manufacturer">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label class="col-md-2 control-label">色</label>
                                                     <div class="col-md-10">
                                                     <input type="text" value="<?php echo(!empty($get_data['vehicle_color'])) ? $get_data['title'] : '' ;?>" required="" placeholder="グレー" id="subject" class="form-control" name="vehicle_color">
@@ -234,8 +246,11 @@ include './view/nav_list.html';
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">年式</label>
-                                                    <div class="col-md-10">
-                                                    <input type="text" value="<?php echo(!empty($get_data['vehicle_year'])) ? $get_data['title'] : '' ;?>" required="" placeholder="H30" id="subject" class="form-control" name="vehicle_year">
+                                                    <div class="col-md-2">
+                                                    <input type="text" value="<?php echo(!empty($get_data['vehicle_year'])) ? $get_data['title'] : '' ;?>" required="" placeholder="20XX" id="subject" class="form-control" name="vehicle_year">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span class="" style="color:#DA4453">西暦で入力してください！</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -262,7 +277,13 @@ include './view/nav_list.html';
                                                     <label class="col-md-2 control-label">金額</label>
                                                     <div class="col-md-10 input-group">
                                                         <span class="input-group-addon">￥</span>
-                                                        <input type="text" value="<?php echo(!empty($get_data['budget'])) ? $get_data['title'] : '' ;?>" required="" placeholder="999,999" id="subject" class="form-control" name="budget">
+                                                        <input type="number" value="<?php echo(!empty($get_data['budget'])) ? $get_data['title'] : '' ;?>" required="" placeholder="999,999" id="subject" class="form-control" name="budget">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label" for="description">その他特記事項</label>
+                                                    <div class="col-md-10">
+                                                    <textarea required="" class="form-control" placeholder="Description" rows="3" cols="30" id="description" name="notices"><?php echo(!empty($get_data['title'])) ? $get_data['notices'] : '' ;?></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,7 +292,7 @@ include './view/nav_list.html';
                                         
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                            <button class="btn btn-info" type="submit">確認</button>
+                                            <button class="btn btn-info" type="submit" name="submit" value="submit">確認</button>
                                             </div>
                                         </div>
                                     </form>
