@@ -8,7 +8,7 @@ require_once './src/env.php';
 require_once './src/func.php';
 
 // 変数初期化
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 $get = new GetState();
 $get_data;
 $alert_msg;
@@ -34,17 +34,8 @@ if ($get->RawDataGet()){
     echo '値あり';
     $get_data = $get->arrayhtml($get->RawDataGet());
 
-    // 未入力チェック(今回要らないけど作っちゃった)
-    if (empty($get_data['title']) &&
-        empty($get_data['company_name']) &&
-        empty($get_data['rep_name']) &&
-        empty($get_data['cont_name']) &&
-        empty($get_data['tel']) &&
-        empty($get_data['mail']) &&
-        empty($get_data['pref_name']) &&
-        empty($get_data['address']) &&
-        empty($get_data['budget'])
-    ) {
+    // submit押されたら遷移
+    if (empty($get_data['submit']) ) {
         $alert_msg['input_empty'] = '顧客情報と予算は必須項目です';
     }else {
         $_SESSION['get_data'] = $get_data;
