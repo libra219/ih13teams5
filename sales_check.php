@@ -17,7 +17,7 @@ require_once './src/func.php';
 
 // 変数初期化
 $select_data;
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 // DB接続
 $mysql = new mysqli(HOST,USERNAME,PASSWORD,DBNAME);

@@ -22,7 +22,7 @@ session_start();
 
 // 変数初期化
 $select_data;
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 $initialize_date = date("Y-m");
 $_day = '-25';
 $bulk_date = $initialize_date.$_day;

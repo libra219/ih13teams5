@@ -13,7 +13,7 @@ $getState = new ih13teams5\GetState();
 
 
 
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 
 $select_id = $getState->IntGet('select');

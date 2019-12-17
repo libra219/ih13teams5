@@ -8,7 +8,7 @@ require_once './src/env.php';
 require_once './src/func.php';
 
 // 変数初期化
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 $get_data;
 $raw_get = new ih13teams5\GetState();
 $submit = $raw_get->Get("submit");
@@ -145,7 +145,7 @@ if (!empty($get_data) && !empty($submit)) {
     VALUES (?,?,?,?,?,?,?,?)";
 
     if($stmt = $mysql->prepare($insert_issue_sql)){
-        var_dump("sql_set");
+        
         $stmt->bind_param('ssssiiis'
         , $get_data['title']
         ,$get_data['trade']
@@ -194,7 +194,7 @@ if (!empty($get_data) && !empty($submit)) {
     $mysql->close();
 }
 
-if ($jump == "aok") {
+if ($jump == "ok") {
     header( 'Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/case_list.php' ) ;
     exit ;
 }
