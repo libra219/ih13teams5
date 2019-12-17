@@ -109,7 +109,7 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">修復歴</label>
                                                     <div class="col-md-10 ">
-                                                        <input type="number" value="<?=$select_data['restration']?>" required="" placeholder="" id="subject" class="form-control" name="restration" >
+                                                        <input type="text" value="<?=$select_data['restration']?>" required="" placeholder="" id="subject" class="form-control" name="restration" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -158,7 +158,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-0" name="biddoc" value="ok" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-0" name="biddoc" value="ok" <?php echo ($select_data['biddoc']) ? 'checked' : '' ; ?>>
                                                                 <label for="flat-checkbox-0">chack</label>
                                                             </div>
                                                         </div>
@@ -179,7 +179,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1" name="inspeciondoc" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-1" name="inspeciondoc" value="ok" <?php echo ($select_data['inspeciondoc']) ? 'checked' : '' ; ?>>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -201,7 +201,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-2" name="liabilityinsu" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-2" name="liabilityinsu"  value="ok" <?php echo ($select_data['liabilityinsu']) ? 'checked' : '' ; ?>>
                                                                 <label for="flat-checkbox-2">chack</label>
                                                             </div>
                                                         </div>
@@ -223,7 +223,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-3" name="taxcert" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-3" name="taxcert"  value="ok" <?php echo ($select_data['taxcert']) ? 'checked' : '' ; ?>>
                                                                 <label for="flat-checkbox-3">chack</label>
                                                             </div>
                                                         </div>
@@ -245,7 +245,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-4" name="sealcert" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-4" name="sealcert" value="ok" <?php echo ($select_data['sealcert']) ? 'checked' : '' ; ?> >
                                                                 <label for="flat-checkbox-4">chack</label>
                                                             </div>
                                                         </div>
@@ -267,7 +267,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-5" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-5" name="warrant" value="ok" <?php echo ($select_data['warrant']) ? 'checked' : '' ; ?> >
                                                                 <label for="flat-checkbox-5">chack</label>
                                                             </div>
                                                         </div>

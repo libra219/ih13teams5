@@ -34,7 +34,7 @@ $get_data['inspeciondoc'] = (!empty($select_data['inspeciondoc'])) ? $select_dat
 $get_data['liabilityinsu'] = (!empty($select_data['liabilityinsu'])) ? $select_data['liabilityinsu'] : (!empty($get_data['liabilityinsu'])) ? date('Y-m-d') : $select_data['liabilityinsu'] ;
 $get_data['taxcert'] = (!empty($select_data['taxcert'])) ? $select_data['taxcert'] : (!empty($get_data['taxcert'])) ? date('Y-m-d') : $select_data['taxcert'] ;
 $get_data['sealcert'] = (!empty($select_data['sealcert'])) ? $select_data['sealcert'] : (!empty($get_data['sealcert'])) ? date('Y-m-d') : $select_data['sealcert'] ;
-$get_data['warrant'] = (!empty($select_data['warrant'])) ? $select_data['warrant'] : (!empty($get_data['biddoc'])) ? date('Y-m-d') : $select_data['biddoc'] ;
+$get_data['warrant'] = (!empty($select_data['warrant'])) ? $select_data['warrant'] : (!empty($get_data['warrant'])) ? date('Y-m-d') : $select_data['warrant'] ;
 
 
 if (!empty($get_data) && !empty($submit) ) {
@@ -104,6 +104,7 @@ if (!empty($get_data) && !empty($submit) ) {
             $stmt->close();
         }
     }
+    
 
     if ($select_data['id']) {
         $update_sql = "UPDATE `issue` 

@@ -156,7 +156,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-0" name="biddoc" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-0" name="biddoc" <?php echo ($get_data['biddoc']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-0">chack</label>
                                                             </div>
                                                         </div>
@@ -178,7 +178,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-1" name="inspeciondoc" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-1" name="inspeciondoc" <?php echo ($get_data['inspeciondoc']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-1">chack</label>
                                                             </div>
                                                         </div>
@@ -200,7 +200,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-2" name="liabilityinsu" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-2" name="liabilityinsu" <?php echo ($get_data['liabilityinsu']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-2">chack</label>
                                                             </div>
                                                         </div>
@@ -222,7 +222,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-3" name="taxcert" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-3" name="taxcert" <?php echo ($get_data['taxcert']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-3">chack</label>
                                                             </div>
                                                         </div>
@@ -244,7 +244,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-4" name="sealcert" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-4" name="sealcert" <?php echo ($get_data['sealcert']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-4">chack</label>
                                                             </div>
                                                         </div>
@@ -266,7 +266,7 @@ include './view/nav_list.html';
                                                         </div>
                                                         <div class="col-md-1">
                                                             <div class="checkbox">
-                                                                <input type="checkbox" id="flat-checkbox-5" name="warrant" readonly>
+                                                                <input type="checkbox" id="flat-checkbox-5" name="warrant" <?php echo ($get_data['warrant']) ? 'checked' : '' ; ?> readonly>
                                                                 <label for="flat-checkbox-5">chack</label>
                                                             </div>
                                                         </div>
