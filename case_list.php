@@ -18,9 +18,10 @@ if ($mysql->connect_error) {
     $mysql->set_charset('utf8');    
 }
 
-$select_sql = 'SELECT `id`, `name`, `trade`, `client_id`, `employees_id`, `ensure_id`, `car_id`, `date`, `update_date` 
-FROM `issue` 
-ORDER BY date DESC ';
+$select_sql = "SELECT `id`, `name`, `trade`, `client_id`, `employees_id`, `ensure_id`, `car_id`, `date`, `update_date` 
+FROM `issue`  
+WHERE date != 'null' 
+ORDER BY date DESC ";
 
 if ($result = $mysql->query($select_sql)) {
     while ($row = $result->fetch_assoc()) {
