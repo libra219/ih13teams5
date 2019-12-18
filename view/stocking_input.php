@@ -34,7 +34,7 @@ include './view/nav_list.html';
                                     <h3 class="panel-title">仕入・出荷内容</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form action="./stocking_check.html" novalidate role="form" class="form-horizontal">
+                                    <form action="./stocking_check.php" novalidate role="form" class="form-horizontal">
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">案件名</label>
                                             <div class="col-md-10">
@@ -123,13 +123,13 @@ include './view/nav_list.html';
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">単価</label>
                                                     <div class="col-md-10">
-                                                        <input type="number" value="<?=$select_data['bid']?>" required="" placeholder="" id="subject" class="form-control" name="title">
+                                                        <input type="number" value="<?=$select_data['bid']?>" required="" placeholder="" id="subject" class="" name="bid">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">落札手数料</label>
                                                     <div class="col-md-10">
-                                                        <input type="number" value="<?=$select_data['bidfee']?>" required="" placeholder="" id="subject" class="form-control" name="bidfee">
+                                                        <input type="number" value="<?=$select_data['bidfee']?>" required="" placeholder="" id="subject" class="" name="bidfee">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -301,7 +301,7 @@ include './view/nav_list.html';
                                         
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <button class="btn btn-primary" type="submit">登録</button>
+                                                <button class="btn btn-primary" type="submit">登録確認</button>
                                             </div>
                                         </div>
                                     </form>

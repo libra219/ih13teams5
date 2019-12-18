@@ -40,7 +40,7 @@ INNER JOIN car ON issue.car_id = car.id
 INNER JOIN client ON issue.client_id = client.id 
 INNER JOIN documents ON issue.id = documents.issue_id
 INNER JOIN purchasing ON issue.id = purchasing.issue_id
-WHERE issue.id = ? ";
+WHERE purchasing.id = ? ";
 
 if($stmt = $mysql->prepare($select_sql)){
 
@@ -73,13 +73,14 @@ $select_data['sealcert_end'] = str_replace(' 00:00:00', '', $select_data['sealce
 $select_data['warrant_end'] = str_replace(' 00:00:00', '', $select_data['warrant_end']);
 $select_data['getdate'] = str_replace(' 00:00:00', '', $select_data['getdate']);
 
-$_SESSION['select_data'] = $select_data;
+$_SESSION['stocking_data'] = $select_data;
 
 
 
 
  if (DEBUG_MODE) {
      \var_dump($select_data);
+     var_dump($select_id);
  }
 
 
