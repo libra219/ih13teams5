@@ -42,7 +42,7 @@ include './view/nav_list.html';
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <a href="./bulk_billing.php" class="btn btn-danger navbar-btn">月末一括請求</a>
+                                <a href="./deposit.php" class="btn btn-success  navbar-btn">入金</a>
                             </ul>
                             </li>
                             </ul>
@@ -83,39 +83,15 @@ include './view/nav_list.html';
                     </nav>
                     <div class="panel-body">
                         <div class="content-row">
-                        <form method="GET" action="./sales_finish.php">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">案件名</th>
-                                    <th scope="col">得意先</th>
-                                    <th scope="col">メーカー</th>
-                                    <th scope="col">年式</th>
-                                    <th scope="col">車名</th>
-                                    <th scope="col">売上金</th>
-                                    <th scope="col">日付</th>
-                                    <th scope="col">請求</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach ($select_data as $key => $value) :?>
-                                <tr class="<?php echo ($value['trade']) ? 'danger' : 'success' ;?>">
-                                    <td><?=$value['name']?></td>
-                                    <td><?=$value['abbreviation']?></td>
-                                    <td><?=$value['manufacturer']?></td>
-                                    <td><?=$value['modelyear']?></td>
-                                    <td><?=$value['carname']?></td>
-                                    <td><?=number_format($value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess'])?></td>
-                                    <td><?=$value['date']?></td>
-                                    <td>
-                                        <input type="checkbox" class="category " name="id[]" value="<?=$value['issue_id']?>">
-                                    </td>
-                                </tr>
-                                <?php endforeach;?>
-                            </table>
-                            <input type="checkbox" id="category_all" class="icheckbox_flat" style="position: relative"/>
-                            <button type="button submit" class="btn btn-primary">請求</button>
-                        </form>
+                            <div class="alert alert-info">
+                            <form action="./deposit_choose.php" method="post" enctype="multipart/form-data">
+                                <p>
+                                ファイルを選択して下さい<br />
+                                    <input type="file" name="filename"/>
+                                </p>
+                                <button type="button submit" class="btn btn-primaryz">読み込み</button>
+                            </form>
+                            </div>
                         </div>
                     </div>
                 </div><!-- panel body -->

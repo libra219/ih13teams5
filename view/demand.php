@@ -42,7 +42,7 @@ include './view/nav_list.html';
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <a href="./case_input.php" class="btn btn-danger navbar-btn">新規案件</a>
+                                <a href="./bulk_billing.php" class="btn btn-danger navbar-btn">当月一括消込</a>
                             </ul>
                             </li>
                             </ul>
@@ -94,7 +94,7 @@ include './view/nav_list.html';
                                     <th scope="col">車名</th>
                                     <th scope="col">売上金</th>
                                     <th scope="col">日付</th>
-                                    <th scope="col">請求</th>
+                                    <th scope="col">消込</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -105,7 +105,7 @@ include './view/nav_list.html';
                                     <td><?=$value['manufacturer']?></td>
                                     <td><?=$value['modelyear']?></td>
                                     <td><?=$value['carname']?></td>
-                                    <td><?=$value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess']?></td>
+                                    <td><?=number_format($value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess'])?></td>
                                     <td><?=$value['date']?></td>
                                     <td>
                                         <input type="checkbox" class="category"  name="id[]" value="<?=$value['issue_id']?>">
@@ -114,7 +114,7 @@ include './view/nav_list.html';
                                 <?php endforeach;?>
                             </table>
                             <input type="checkbox" id="category_all" class="icheckbox_flat" style="position: relative"/>
-                            <button type="button submit" class="btn btn-primary" btn-block>請求</button>
+                            <button type="button submit" class="btn btn-primary" btn-block>消込</button>
                         </form>
                         </div>
                     </div>

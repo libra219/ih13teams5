@@ -42,7 +42,7 @@ include './view/nav_list.html';
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <a href="./case_input.php" class="btn btn-danger navbar-btn">新規案件</a>
+                                <a href="./bulk_billing.php" class="btn btn-danger navbar-btn">月末一括請求</a>
                             </ul>
                             </li>
                             </ul>
@@ -84,8 +84,9 @@ include './view/nav_list.html';
                     <div class="panel-body">
                         <div class="content-row">
                             <div class="alert alert-info">
-                                <h1><?php echo $cnt;?>件処理されました。</h1>
-                                <a href="./sales.php">戻る</a>
+                                <a href="./sales.php">
+                                    <h1><?php echo $cnt;?>件処理されました。</h1>
+                                </a>
                             </div>
                         </div>
                     </div>

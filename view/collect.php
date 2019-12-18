@@ -103,7 +103,7 @@ include './view/nav_list.html';
                                     <td><?=$value['manufacturer']?></td>
                                     <td><?=$value['modelyear']?></td>
                                     <td><?=$value['carname']?></td>
-                                    <td><?=$value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess']?></td>
+                                    <td><?=number_format($value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess'])?></td>
                                     <td><?=$value['date']?></td>
                                 </tr>
                                 <?php endforeach;?>

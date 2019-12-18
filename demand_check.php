@@ -58,4 +58,4 @@ if (DEBUG_MODE) {
 }
 
 
-include './view/sales_check.php';
+include './view/demand_check.php';

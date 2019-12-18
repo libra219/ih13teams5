@@ -42,7 +42,7 @@ include './view/nav_list.html';
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <a href="./case_input.php" class="btn btn-danger navbar-btn">新規案件</a>
+                                <a href="./bulk_billing.php" class="btn btn-danger navbar-btn">月末一括請求</a>
                             </ul>
                             </li>
                             </ul>
@@ -103,7 +103,7 @@ include './view/nav_list.html';
                                     <td><?=$value['abbreviation']?></td>
                                     <td><?=$value['modelyear']?></td>
                                     <td><?=$value['carname']?></td>
-                                    <td><?=$value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess']?></td>
+                                    <td><?=number_format($value['fee'] + $value['bid'] + $value['bidfee'] + $value['expensess'])?></td>
                                     <td><?=$value['date']?></td>
                                     <td>
                                         <input type="checkbox" class="category" name="id[]" value="<?=$value['issue_id']?>">
