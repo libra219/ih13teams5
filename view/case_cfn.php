@@ -315,12 +315,12 @@ include './view/nav_list.html';
                                         
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-9">
-                                                <button class="btn btn-primary" type="submit">仕入/出荷登録</button>
+                                                <button class="btn btn-primary" type="submit" formaction="./case_stock.php" name="select_id" value="<?=$select_data['id']?>">仕入/出荷登録</button>
                                                 <button class="btn btn-warning" type="submit" formaction="./case_cfn_check.php">内容修正</button>
                                                 <button class="btn btn-default" type="submit">受注残</button>
                                             </div>
                                             <div class="col-md-1">
-                                                <button class="btn btn-danger" type="button">案件の削除</button>
+                                                <button class="btn btn-danger" type="submit" formaction="./case_del.php?" name="del_id" value="<?=$select_data['id']?>">案件の削除</button>
                                             </div>
                                         </div>
                                         <div class="form-group">
